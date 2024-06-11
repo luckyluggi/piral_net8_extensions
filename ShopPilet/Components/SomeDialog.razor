@@ -1,0 +1,21 @@
+@namespace ShopPilet
+
+<MudDialog>
+    <DialogContent>
+        The extension should be shown here:<br />
+        <hr />
+        <Extension Name="DialogExtensionSlot" />
+        <hr />
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+}
